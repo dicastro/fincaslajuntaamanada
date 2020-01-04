@@ -102,7 +102,7 @@
                         <h4>Saldar deuda con justificante de pago</h4>
                 
                         <div class="mb-3">
-                            <label for="paymentreceiptid">Introduce el identificador del justificante</label>
+                            <label for="paymentreceiptid">En caso de disponer de un justificante de pago, introduzca aquí su número de identificador</label>
                             <input type="text" class="form-control" id="paymentreceiptid" placeholder="XXXXXX">
                         </div>
 
@@ -251,6 +251,7 @@
                         var paymentreceiptid = $('#paymentreceiptid').val()
 
                         if (paymentreceiptid === 'RYJ800') {
+                            event.preventDefault()
                             sessionStorage.setItem('paymentjustified', true);
                             window.location = 'congratulations.html'
                         } else {
