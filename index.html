@@ -260,8 +260,24 @@
                     }
                 })
 
-                if (sessionStorage.getItem('paymentjustified')) {
-                    window.location = 'congratulations.html'
+                var urlParams = new URLSearchParams(window.location.search);
+
+                if (urlParams.has('reset') && urlParams.get('reset')) {
+                    sessionStorage.setItem('paymentjustified', false);
+                    sessionStorage.setItem('ccconfirmed', false);
+                    sessionStorage.setItem('debtconfirmed', false);
+                }
+
+                if (urlParams.has('solve') && urlParams.get('solve')) {
+                    sessionStorage.setItem('paymentjustified', true);
+                    sessionStorage.setItem('ccconfirmed', true);
+                    sessionStorage.setItem('debtconfirmed', true);
+                }
+
+                if (sessionStorage.getItem('paymentjustified') && sessionStorage.getItem('paymentjustified') === "true") {
+                    if (!urlParams.has('force') || !urlParams.get('force')) {
+                        window.location = 'congratulations.html'
+                    }
                 }
             })
         </script>

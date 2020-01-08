@@ -13,6 +13,72 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        <style>
+            .svg-icon {
+                display: inline-flex;
+                 align-self: center;
+            }
+            .svg-icon img {
+                height: 1em;
+                width: 1em;
+                margin: 0.15em;
+            }
+            .svg-icon.svg-baseline img {
+                top: -0.090em;
+                position: relative;
+            }
+
+            h1 {
+                font-size:1.75rem;
+            }
+
+            .message p {
+                font-size: 18px;
+            }
+
+            /* Small devices (landscape phones, 544px and up) */
+            @media (min-width: 544px) {  
+                h1 {
+                    font-size: 2.5rem;
+                }
+
+                .message p {
+                    font-size: 20px;
+                }
+            }
+
+            /* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+            @media (min-width: 768px) {  
+                h1 {
+                    font-size: 3.25rem;
+                }
+
+                .message p {
+                    font-size: 24px;
+                }
+            }
+
+            /* Large devices (desktops, 992px and up) */
+            @media (min-width: 992px) { 
+                h1 {
+                    font-size: 4.5rem;
+                }
+
+                .message p {
+                    font-size: 26px;
+                }
+            }
+            /* Extra large devices (large desktops, 1200px and up) */
+            @media (min-width: 1200px) {  
+                h1 {
+                    font-size: 5.5rem;
+                }
+
+                .message p {
+                    font-size: 26px;
+                }
+            }
+        </style>
     </head>
     <body>
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
@@ -25,13 +91,36 @@
         </div>
 
         <div class="content">
-            <div class="row justify-content-md-center text-center">
-                <div class="col-md-8">
-                    <h1>¡ ENHORABUENA !</h1>
-                    <p>Vuestra deuda ha quedado saldada por completo! Lamentamos las posibles molestias ocasionadas</p>
-                    <p>Podéis aprovechar el dinero encontrado para seguir haciendo de vuestro piso vuestro hogar</p>
+            <div class="container">
+                <div class="justify-content-center text-center">
+                    <h1 class="title svg-icon svg-baseline">
+                        <img src="fireworks.svg" />
+                        <img src="confetti.svg" />
+                        ENHORABUENA
+                        <img src="confetti.svg" />
+                        <img src="fireworks.svg" />
+                    </h1>
+                </div>
+            </div>
+            <div class="container">
+                <div class="message justify-content-center text-justify">
+                    <p>Tras un chequeo en nuestro sistema informático hemos verificado que el justificante de pago es correcto por lo que ¡Vuestra deuda ha quedado saldada por completo! Lamentamos las posibles molestias ocasionadas</p>
+                    <p>Habéis conseguido completar de manera satisfactoria este humilde escape casero preparado con todo nuestro cariño. ¡Esperamos que lo hayáis disfrutado!</p>
+                    <p><b>Podéis aprovechar el dinero encontrado en el camino para seguir haciendo de vuestro piso vuestro hogar.</b></p>
                 </div>
             </div>
         </div>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                var urlParams = new URLSearchParams(window.location.search);
+
+                if (!sessionStorage.getItem('paymentjustified') || sessionStorage.getItem('paymentjustified') === "false") {
+                    if (!urlParams.has('force') || !urlParams.get('force')) {
+                        window.location = 'index.html'
+                    }
+                }
+            })
+        </script>
     </body>
 </html>
