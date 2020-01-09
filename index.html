@@ -200,7 +200,7 @@
                     }
                 })
 
-                if (sessionStorage.getItem('debtconfirmed')) {
+                if (sessionStorage.getItem('debtconfirmed') && sessionStorage.getItem('debtconfirmed') === "true") {
                     debtconfirmedAction()
                 }
 
@@ -236,7 +236,7 @@
                     }
                 })
 
-                if (sessionStorage.getItem('ccconfirmed')) {
+                if (sessionStorage.getItem('ccconfirmed') && sessionStorage.getItem('ccconfirmed') === "true") {
                     ccconfirmedAction()
                 }
 
@@ -252,7 +252,7 @@
                 $('#checkpaymentreceiptresult').on('show.bs.modal', function (event) {
                     var modal = $(this)
 
-                    if (!sessionStorage.getItem('debtconfirmed')) {
+                    if (!sessionStorage.getItem('debtconfirmed') || sessionStorage.getItem('debtconfirmed') === "false") {
                         modal.find('.modal-body #result p').text('Pero si todavía no sabes lo que debes! No quieras correr tanto')
                     } else {
                         var paymentreceiptid = $('#paymentreceiptid').val()
