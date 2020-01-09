@@ -13,6 +13,13 @@
         <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+        
+        <style>
+            code {
+                font-size: unset;
+                color: unset;
+            }
+        </style>
     </head>
     <body>
         <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
@@ -199,7 +206,7 @@
 
                 // account confirmation
                 function ccconfirmedAction() {
-                    $('#ccconfirmationform').replaceWith('<div class="alert alert-success" role="alert">Número de cuenta confirmado: <b>ES92-3067-2343-1111-5678-9652</b>. Recordad que hay que hacer el ingreso en efectivo, quizás necesitéis usar vuestros <i>ahorros para imprevistos</i>.</div>')
+                    $('#ccconfirmationform').replaceWith('<div class="alert alert-success" role="alert">Número de cuenta confirmado: <code>ES92-3067-2343-1111-5678-9652</code>. Recordad que hay que hacer el ingreso en efectivo, quizás necesitéis usar vuestros <b><i>ahorros para imprevistos</i></b>.</div>')
                 }
 
                 $('#ccblock').on('keyup', function(event) {
